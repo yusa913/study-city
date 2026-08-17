@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* ============================================================
+   デザイントークン
+   コンセプト：「設計図（ブループリント）が学習によって実体化していく」
+   背景=深いブループリントネイビー、グリッド線=シアン、
+   進捗アクセント=建設現場のアンバー。
+   スロットごとのテーマカラーは lib/recipes.ts と対応。
+   ============================================================ */
+:root {
+  --bp-navy-950: #0c1526;
+  --bp-navy-900: #101d34;
+  --bp-navy-800: #16233e;
+  --bp-navy-700: #1e2f4f;
+  --bp-grid-line: rgba(94, 149, 214, 0.16);
+  --bp-grid-line-strong: rgba(94, 149, 214, 0.32);
+  --bp-cyan: #6fb3e0;
+  --bp-amber: #e2a63b;
+  --bp-amber-soft: rgba(226, 166, 59, 0.16);
+  --bp-green: #4cb389;
+  --bp-text: #eaf1fb;
+  --bp-text-muted: #8fa3c4;
+  --bp-text-faint: #5c7196;
+  --bp-danger: #e3697a;
+
+  --font-display: var(--font-zen-kaku), "Hiragino Sans", sans-serif;
+  --font-body: var(--font-zen-kaku), "Hiragino Sans", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+@theme inline {
+  --color-background: var(--bp-navy-950);
+  --color-foreground: var(--bp-text);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background:
+    linear-gradient(var(--bp-grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--bp-grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    var(--bp-navy-950);
+  color: var(--bp-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--bp-amber);
+  color: var(--bp-navy-950);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--bp-amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--bp-navy-800), var(--bp-navy-900));
+  border: 1px solid var(--bp-grid-line-strong);
+  border-radius: 14px;
+}
+
+.label-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bp-text-faint);
+}
+
+.btn-primary {
+  background: var(--bp-amber);
+  color: var(--bp-navy-950);
+  font-weight: 700;
+  border-radius: 10px;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--bp-grid-line-strong);
+  color: var(--bp-text);
+  border-radius: 10px;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+.btn-ghost:hover {
+  border-color: var(--bp-cyan);
+  background: rgba(111, 179, 224, 0.08);
+}
+
+.stage-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bp-text-faint);
+}
+.stage-dot.active {
+  background: var(--bp-amber);
+}
