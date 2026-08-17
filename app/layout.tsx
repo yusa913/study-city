@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import "./globals.css";
 
 const zenKaku = Zen_Kaku_Gothic_New({
-  subsets: ["latin", "japanese"],
+  subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
   variable: "--font-zen-kaku",
   display: "swap",
@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "STUDY WORKS | 勉強×建築",
-  description: "勉強時間が建材に変わり、あなたの街が育っていく学習記録アプリ",
+  title: "STUDY WORKS | 勉強×建篁E,
+  description: "勉強時間が建材に変わり、あなた�E街が育ってぁE��学習記録アプリ",
 };
 
 export default function RootLayout({
